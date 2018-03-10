@@ -1,0 +1,42 @@
+﻿@model ValueVille.Models.CategoryViewModel
+@using ValueVille.Models
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Category Details</h2>
+
+<table class="panel panel-default table form-horizontal">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+
+        <th>  </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(m => Model.Name)
+        </td>
+        <td>
+            <img src="@Model.OutputImage" alt="@Model.Name" height="100" />
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-info" })|
+            @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger"}) 
+        </td>
+    </tr>
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+</div>

@@ -1,0 +1,16 @@
+﻿@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+
+    string cLayout = "";
+
+    if (controller.ToUpper() == "ACCOUNT" || controller.ToUpper() == "CATEGORY" || controller.ToUpper() == "PRODUCT" || controller.ToUpper() == "MANAGE")
+    {
+        cLayout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else
+    {
+        cLayout = "~/Views/Shared/_Layout.cshtml";
+    }
+    Layout = cLayout;
+}
+

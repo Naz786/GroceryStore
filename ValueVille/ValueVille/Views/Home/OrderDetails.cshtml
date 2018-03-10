@@ -1,0 +1,76 @@
+﻿@model ValueVille.Models.AccountOrdersViewModel
+
+@{
+    ViewBag.Title = "Order Items";
+
+}
+
+<div class="main-content-container">
+
+    <h1></h1>
+
+    <table class="panel panel-default table cart-table">
+        <tr>
+            <th>
+                Product ID
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+        @foreach (var item in Model.OrderDetails)
+        {
+            <tr>
+                <td>
+                    @item.ProductId
+                </td>
+                <td>
+                    @item.Product.Name
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+                <td>
+                    £@item.UnitPrice
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <table class="panel panel-default table cart-table">
+        <tr>
+            <th>Delivery Address</th>
+        </tr>
+        <tr>
+            <td>@Model.Order.FirstName</td>
+        </tr>
+        <tr>
+            <td>@Model.Order.LastName</td>
+        </tr>
+        <tr>
+            <td>@Model.Order.Address</td>
+        </tr>
+        <tr>
+            <td>@Model.Order.City</td>
+        </tr>
+        <tr>
+            <td>@Model.Order.State</td>
+        </tr>
+        <tr>
+            <td>@Model.Order.PostalCode</td>
+        </tr>
+        <tr>
+            <td>@Model.Order.Phone</td>
+        </tr>
+    </table>
+
+</div>
+<div class="alert alert-warning" role="alert">REFUND POLICY: Return product to store for replacement only.</div>
+<div class="alert alert-warning" role="alert">DELIVERY: Order before 3pm for same day delivery. FREE on orders over £20. Standard local delivery £3.99.</div>

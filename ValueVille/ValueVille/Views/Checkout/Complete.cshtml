@@ -1,0 +1,23 @@
+﻿@model ValueVille.Models.CompleteViewModel
+
+@{
+    ViewBag.Title = "Checkout Complete";
+}
+
+<h2>
+
+</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Checkout Complete
+    </div>
+    <div class="panel-body">
+        <p>Thanks for your order! Your order number is: @Model.OrderId</p>
+        <p>
+            Come back to @Html.ActionLink("ValueVille", "Index", "Home", "", new { @class="btn btn-info"}) soon! :)
+        </p>
+    </div>
+</div>
+
+

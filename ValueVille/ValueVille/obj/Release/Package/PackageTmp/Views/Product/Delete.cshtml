@@ -1,0 +1,64 @@
+﻿@model ValueVille.Models.ProductDeleteViewModel
+@using ValueVille.Models
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Product</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+    <table class="panel panel-default table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Image)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Price)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Product.ShowOnIndex)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(m => Model.Product.Name)
+            </td>
+
+            <td>
+                <img src="@Model.Product.OutputImage" alt="@Model.Product.Image" height="100" />
+            </td>
+
+            <td>
+                @Html.DisplayFor(m => Model.Product.Price)
+            </td>
+
+            <td>
+                @Html.TrueOrFalse(Model.Product.ShowOnIndex)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Product.Id, productName = Model.Product.Name }, new { @class ="btn btn-info"}) 
+            </td>
+
+        </tr>
+    </table>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <p class="form-actions">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index", new { id = Model.GenerateSlug(Model.CategoryId, Model.CategoryName) }, new { @class = "btn btn-info"}) 
+        </p>
+    }

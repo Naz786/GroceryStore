@@ -1,0 +1,23 @@
+﻿@model ValueVille.Models.CompleteViewModel
+
+@{
+    ViewBag.Title = "Checkout Complete";
+}
+
+<h2>
+
+</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Checkout 
+    </div>
+    <div class="panel-body">
+        <p>To complete your order, click below:</p>
+        <p>
+            @Html.ActionLink("Complete Order >>", "BillingAddress", "Checkout", "", new { @class = "btn btn-success"}) 
+        </p>
+    </div>
+</div>
+
+

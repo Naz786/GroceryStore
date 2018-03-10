@@ -1,0 +1,140 @@
+﻿@model ValueVille.Models.AdminOrdersViewModel
+
+@{
+    ViewBag.Title = "Orders";
+
+}
+<script src="/Scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#Order-Update-Button").click(function () {
+            var ListOfUpdatedOrders = []
+            @{
+                foreach (var item in Model.OrdersInProgress)
+                {
+                    @:ListOfUpdatedOrders.push({ id: "@item.OrderId", newStatus: document.getElementById("@item.OrderId").value });
+                }
+                foreach (var item in Model.OrdersDespatched)
+                {
+                    @:ListOfUpdatedOrders.push({ id: "@item.OrderId", newStatus: document.getElementById("@item.OrderId").value });
+                }
+            }
+
+            // Perform the ajax post
+            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                url: "@Url.Action("UpdateOrders", "Manage")",
+                data: JSON.stringify(ListOfUpdatedOrders),
+                dataType: "json",
+                success: function (data) {
+                    location.reload();
+                    alert("your change was successful.");
+                },
+                error: function (data) {
+                    alert("Server Error");
+                    location.reload();
+                }
+            });
+
+        });
+    });
+</script>
+
+<div class="main-content-container">
+
+    <h1>New Orders In Progress<span id="update-order-test"></span></h1>
+
+        @Html.AntiForgeryToken()
+        
+        <table class="panel panel-default table cart-table">
+            <tr>
+                <th>
+                    Order ID
+                </th>
+                <th>
+                    Total
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+            @foreach (var item in Model.OrdersInProgress)
+            {
+                <tr>
+                    <td>
+                        <a href="@Url.Action("OrderDetails", "Home", new { id = item.OrderId })">
+                            @item.OrderId
+                            @Html.HiddenFor(x => item.OrderId)
+                        </a>
+                    </td>
+                    <td>
+                        £@item.Total
+                        @Html.HiddenFor(x => item.Total)
+                    </td>
+                    <td>
+                        @item.OrderDate
+                        @Html.HiddenFor(x => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(m => item.Status, new SelectList(Model.OrderStatuses, "StatusName", "StatusName", item.Status), new { @id=item.OrderId })
+                    </td>
+                </tr>
+                            }
+
+        </table>
+
+        <h1>Orders Despatched</h1>
+
+        <table class="panel panel-default table cart-table">
+            <tr>
+                <th>
+                    Order ID
+                </th>
+                <th>
+                    Total
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+            @foreach (var item in Model.OrdersDespatched)
+            {
+                <tr>
+                    <td>
+                        <a href="@Url.Action("OrderDetails", "Home", new { id = item.OrderId })">
+                            @item.OrderId
+                            @Html.HiddenFor(x => item.OrderId)
+                        </a>
+                    </td>
+                    <td>
+                        £@item.Total
+                        @Html.HiddenFor(x => item.Total)
+                    </td>
+                    <td>
+                        @item.OrderDate
+                        @Html.HiddenFor(x => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(m => item.Status, new SelectList(Model.OrderStatuses, "StatusName", "StatusName", item.Status), new { @id = item.OrderId })
+                    </td>
+                </tr>
+                            }
+
+        </table>
+
+        <div class="panel-body form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="Order-Update-Button" type="submit" value="Update" class="btn btn-success" />
+            </div>
+        </div>
+
+</div>

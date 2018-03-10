@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="background-blue-color navbar navbar-fixed-top">
+        <div class="row text-white text-center">
+            <div class="container heading-padding">
+
+                <div class="disappear col-md-4">
+                    <p>Cleanliness For Less...</p>
+                    <div class="text-box-white">
+                        <p>Nutrition For Less...</p>
+                    </div>
+                    
+                </div>
+
+                <div class="col-md-4 image-from-top">
+                    <img src="/Content/Images/vv-logo.png" alt="ValueVille" />
+                </div>
+
+                <div class="col-md-4 address-contact">
+                    <p class="text-align-right">Find us at:<br /> 371 Prince Rupert Drive<br /> Buckingham Park<br /> Aylesbury<br /> HP19 9DF</p>
+                    <div class="text-box-white text-box-white2">
+                        <p>Happiness For Less...</p>
+                    </div>
+                </div>
+
+            </div>      
+        </div>
+    </div>
+    <div class="page-background">
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="row grey-footer">
+        <div class="footer-content container padding-top-10">
+            <div class="col-md-6 address-bottom">
+                <p>
+                </p>
+                <p>
+                    Valueville<br />
+                    371 Prince Rupert Drive<br />
+                    Buckingham Park<br />
+                    Aylesbury<br />
+                    HP19 9DF
+                </p>
+            </div>
+            
+            <div class="col-md-6 media-icons float-right ">
+                <div class="col-md-6 icon-sizes">
+                    <img src="~/Content/Images/footer-logo.png" alt="Social Media Icons" />
+                </div>
+                @*<div class="col-md-6 icon-sizes">
+                    <img src="~/Content/Images/mediaIcon1.jpg" alt="Social Media Icons" />
+                </div>*@
+
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="row white-footer">
+        <div class="footer-content container font-size-xs">
+            
+            <div class="footer-left col-md-6">
+                <p>COPYRIGHT &#169; @DateTime.Now.Year VALUEVILLE</p>
+            </div>
+
+            <div class="col-md-6">
+                <div class="float-right">
+                    <p>SITE DESIGN : SMOKIN-DONUT.COM</p>
+                </div>
+               
+            </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

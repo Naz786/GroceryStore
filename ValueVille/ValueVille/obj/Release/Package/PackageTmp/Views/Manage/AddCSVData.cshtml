@@ -1,0 +1,31 @@
+﻿@model ValueVille.Models.AddCSVDataViewModel
+
+@{
+    ViewBag.Title = "Import Data";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("AddCSVData", "Manage", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Add New Data</h4>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.CSVFile, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CSVFile, new { type = "file", accept= ".csv", required = "required" })
+            @Html.ValidationMessageFor(m => m.CSVFile, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add Data" class="btn btn-success" />
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

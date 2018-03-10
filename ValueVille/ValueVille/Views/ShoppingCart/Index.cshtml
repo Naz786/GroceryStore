@@ -1,0 +1,137 @@
+﻿@model ValueVille.Models.ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "ShoppingCart";
+}
+
+<script src="/Scripts/jquery-3.1.1.min.js"
+        type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Document.ready -> link up remove event handler
+        $(".RemoveLink").click(function () {
+            // Get the id from the link
+            var recordToDelete = $(this).attr("data-id");
+            if (recordToDelete != '') {
+                // Perform the ajax post
+                $.post("/ShoppingCart/RemoveFromCart/", { "id": recordToDelete },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        if (data.ItemCount == 0) {
+                            $('#row-' + data.DeleteId).fadeOut('slow');
+                        } else {
+                            $('#item-count-' + data.DeleteId).text(data.ItemCount);
+                        }
+                        $('.cart-count').text(data.CartCount); // Total cart items
+                        $('#cart-total').text(data.CartTotal); 
+                        //$('#add-update').text(data.Message);
+                        //$('#cart-status').text('Cart (' + data.CartCount + ')');
+                    });
+            }
+        });
+
+        $(".qtyplus").click(function () {
+            // Get the id from the link
+            var productIdToAdd = $(this).attr("data-id");
+            // Perform the ajax post
+            $.post("/ShoppingCart/AddToCart/", { "id": productIdToAdd },
+                function (data) {
+                    $('.cart-count').text(data.CartCount); // Total cart items
+                    $('.item-count-' + data.AddId).text(data.CartItemQuantity);
+                    $('#cart-total').text(data.CartTotal);
+
+                });
+        });
+    });
+</script>
+
+<h3>
+   
+</h3>
+
+<div id="update-message">
+</div>
+
+<table class="panel panel-default table cart-table">
+    <tr>
+        <th>
+            Product Name
+        </th>
+        <th>
+            Price (each)
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            @Html.ActionLink("Empty", "EmptyCart", "ShoppingCart", "", new { @class = "btn btn-info" })
+        </th>
+    </tr>
+    @foreach (var item in Model.CartItems)
+    {
+        <tr id="row-@item.RecordId">
+            <td>
+                @item.Product.Name
+            </td>
+            <td>
+                £@item.Product.Price
+            </td>
+            <td>
+                <input type='button' value='-' data-id="@item.RecordId" class='RemoveLink' field='quantity' />
+                    <span class="item-count-@item.ProductId" id="item-count-@item.RecordId">@item.Count</span>
+                <input type='button' value='+' data-id="@item.ProductId" class='qtyplus' field='quantity' />
+            </td>
+            <td>
+                <!--<a href="#" class="RemoveLink" data-id="@item.RecordId">Remove</a>-->
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>Shipping</td>
+        <td>
+            £@Model.ShippingCost
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            Total
+        </td>
+        <td>
+            £<span id="cart-total">@Model.CartTotal</span>
+        </td>
+        <td></td>
+        <td ></td>
+    </tr>
+</table>
+
+<p>
+    @Html.ActionLink("<< Continue Shopping", "Index", "Home", "", new { @class = "btn btn-info" })
+</p>
+
+<p>
+    @Html.ActionLink("Continue to Checkout >>", "AddressAndPayment", "Checkout", "", new { @class = "btn btn-success" })
+</p>
+
+<div class="alert alert-warning" role="alert">REFUND POLICY: Return product to store for replacement only.</div>
+<div class="alert alert-warning" role="alert">DELIVERY: Order before 3pm for same day delivery. FREE on orders over £20. Standard local delivery £3.99.</div>
+<div class="container">
+    <div class="row whiteBG">
+        <!-- Individual Card logos-->
+        <img src=http://www.worldpay.com/images/cardlogos/VISA.gif border=0 alt="Visa Credit and Debit payments supported by Worldpay">
+        <img src=http://www.worldpay.com/images/cardlogos/mastercard.gif border=0 alt="Mastercard payments supported by Worldpay">
+        <img src=http://www.worldpay.com/images/cardlogos/maestro.gif border=0 alt="Maestro payments supported by Worldpay">
+        <img src=http://www.worldpay.com/images/cardlogos/JCB.gif border=0 alt="JCB payments supported by Worldpay">
+
+        <!-- Powered by Worldpay logo-->
+        <a href="http://www.worldpay.com/" target="_blank" title="Payment Processing - Worldpay - Opens in new browser window">
+            <img src="http://www.worldpay.com/images/poweredByWorldPay.gif" border="0" alt="Worldpay Payments Processing">
+        </a>
+
+    </div>
+</div>
+
+<h1></h1>

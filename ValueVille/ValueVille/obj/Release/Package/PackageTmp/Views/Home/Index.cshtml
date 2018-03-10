@@ -1,0 +1,211 @@
+﻿@model ValueVille.Models.HomePageViewModel
+@using ValueVille.Models
+
+@{
+    ViewBag.Title = "ValueVille";
+}
+<script src="/Scripts/jquery-3.1.1.min.js"
+        type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".add-item-to-cart").click(function () {
+            // Get the id from the link
+            var productIdToAdd = $(this).attr("data-id");
+            // Perform the ajax post
+            $.post("/ShoppingCart/AddToCart/", { "id": productIdToAdd },
+                function (data) {
+                    $('.cart-count').text(data.CartCount);
+
+                    $.when($('#add-update').text(data.Message)).then(function () {
+                        $.when($('#add-update').show()).then(function () {
+                            $('#add-update').fadeOut(2500);
+                        });
+                    });
+
+                });
+        });
+    });
+</script>
+
+<!--ValueVille Google Map JS-->
+<script>
+    function initializeMap() {
+        var LatLng = { lat: 51.835184, lng: -0.820928 };
+
+        var mapCanvas = document.getElementById('map');
+
+        var mapOptions = {
+            center: LatLng,
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+
+        var image = {
+            url: '/Content/Images/MapMarker.png',
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(32, 32)
+        };
+
+        var marker = new google.maps.Marker({
+            position: LatLng,
+            map: map,
+            icon: image,
+            title: 'ValueVille, 295 Prince Rupert Dr, Aylesbury HP19'
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsbLEfDlIQKLlKFm4E9qVW6nRp8WeulQE"></script>
+<script>google.maps.event.addDomListener(window, 'load', initializeMap)</script>
+
+<div class="main-content-container">
+    <div style="text-align:center"class="row whiteBG">
+        <div  class="see-want-buy">
+            <p>You ville love our prices!</p>
+        </div>
+    </div>
+
+    <div class="row whiteBG">
+        <div class="collect-or-deliver">
+            <p>You can collect in store... or choose delivery to your door.</p>
+        </div>
+    </div>
+
+    <!--CATEGORIES*********************************************************************-->
+
+    <div class="row whiteBG">
+        <ul id="responsive">
+            @foreach (var item in Model.Categories)
+            {
+                <li id="list-size-increase" class="col-sm-4 align-centre list-size-increase">
+                    <a href="@Url.Action("Products", "Home", new { id = item.GenerateSlug(item.Id, item.Name) })">
+
+                        <img src="@item.OutputImage" alt="@item.Image" />
+
+                        <div class="blend-box-top category-head" style="background: #0197BA url(@item.OutputImage) no-repeat 50% 0%;">
+                            <div class="item-container">
+                                <div class="desc-plus">
+                                    <p>@item.Name</p>
+                                    <p>+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <!--******************************************************************************-->
+
+    <!--PRODUCTS*************************************************************************-->
+
+    <div class="row whiteBG">
+        @foreach (var item in Model.Products)
+        {
+            <div class="col-sm-3 special-products">
+                <div class="align-centre product-image">
+                    @Html.Image(item.ByteImage, item.Name, "200")
+                </div>
+
+                <div class="blend-box category-head" style="background: #323232 url(@Html.ImageSrc(item.ByteImage)) no-repeat 50% 100%;">
+                    <div class="item-container">
+
+                        <div class="desc-plus-products align-centre ">
+                            @{
+                                var TheString = "";
+
+                                if (item.Name.Length == 0)
+                                {
+                                    TheString = "Empty Name String";
+                                }
+                                else
+                                {
+                                    TheString = item.Name;
+                                }
+                                
+                                var maxLength = 20;
+
+                                var trimmedString = TheString.Substring(0, Math.Min(TheString.Length, maxLength));
+                                trimmedString = trimmedString.Substring(0, Math.Min(trimmedString.Length, trimmedString.LastIndexOf(" ")));
+                                //trimmedString = "Empty Name Here";
+                            }
+                            <p>@trimmedString</p>
+                            <p>£@item.Price</p>
+                        </div>
+
+                        <div class="add-to-cart">
+                            <p><a class="add-item-to-cart" data-id="@item.Id">Add to Cart</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                }
+    </div>
+
+    <!--*********************************************************************************-->
+    <div class="row whiteBG">
+        <div class="see-all">
+            <p>Show All</p>
+        </div>
+    </div>
+    <div class="row whiteBG">
+        <div class="see-less">
+            <p>Show Less</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grey-banner">
+            <p>Consistently low prices on high quality essentials</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="white-banner">
+            <p>Want it today – we’re on our way!</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grey-banner">
+            <p>Pay on delivery or pay + collect in-store</p>
+        </div>
+    </div>
+
+    <div class="row whiteBG empty-height"></div>
+
+    <div class="row">
+        <div class="google-map">
+            <h2>Find ValueVille</h2>
+            <p>311 Prince Rupert Dr, Aylesbury HP19 9DF</p>
+            <p>Email: <a style="color:#fff" href="mailto:info@valueville.co.uk?" target="_top">info@valueville.co.uk</a></p>
+            <p>Telephone: 01296 331392</p>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="white-banner">
+            <img src="~/Content/Images/loveVV.jpg" alt="Love ValueVille" />
+        </div>
+    </div>
+
+    <div class="row whiteBG">
+        <!-- Individual Card logos-->
+        <img src=http://www.worldpay.com/images/cardlogos/VISA.gif border=0 alt="Visa Credit and Debit payments supported by Worldpay">
+        <img src=http://www.worldpay.com/images/cardlogos/mastercard.gif border=0 alt="Mastercard payments supported by Worldpay">
+        <img src=http://www.worldpay.com/images/cardlogos/maestro.gif border=0 alt="Maestro payments supported by Worldpay">
+        <img src=http://www.worldpay.com/images/cardlogos/JCB.gif border=0 alt="JCB payments supported by Worldpay">
+
+        <!-- Powered by Worldpay logo-->
+        <a href="http://www.worldpay.com/" target="_blank" title="Payment Processing - Worldpay - Opens in new browser window">
+            <img src="http://www.worldpay.com/images/poweredByWorldPay.gif" border="0" alt="Worldpay Payments Processing">
+        </a>
+    </div>
+</div>

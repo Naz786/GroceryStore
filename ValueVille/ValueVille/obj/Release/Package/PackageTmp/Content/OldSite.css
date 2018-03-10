@@ -1,0 +1,796 @@
+﻿body {
+    padding-top: 240px;
+    font-size: 16px;
+    background-size: 7.75%;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.body-content-header {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.page-background{
+    background-image: url('/Content/Images/bg4.jpg');
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.background-blue-color {
+    background: #0091BA;
+}
+
+.text-white{
+    color: #ffffff;
+}
+
+.text-centre{
+    text-align:center;
+}
+
+.text-box-white {
+    background: #ffffff;
+    border-radius: 5px;
+    color: #000000;
+    position: relative;
+    top: 108px;    
+}
+
+.text-box-white2{
+    position: relative;
+    top: 1px;
+}
+
+.image-from-top{
+    position: relative;
+    top: 20px;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+p{
+    padding: 5px;
+    font-size: 120%;
+}
+
+.heading-padding{
+    padding: 20px 0px;
+}
+
+/*Body Content Starting See-It Image */ 
+.main-content-container{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.see-it-image{
+    text-align: center;
+    background: #ffffff;
+}
+
+.grey-banner{
+    text-align: center;
+    background: #323232;
+    color: #ffffff;
+    font-size: 120%;
+    padding: 9px 0px;
+}
+
+.white-banner{
+    background: #ffffff !important;
+    color: #0197BA !important;
+    text-align: center;
+    font-size: 120%;
+    padding: 9px 0px;
+}
+
+.whiteBG{
+     background: #ffffff;
+}
+
+.col-sm-3 img{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.grey-footer{
+    background: #323232;
+    color: #ffffff;
+   
+}
+
+.white-footer{
+    background: #ffffff;
+    color: #000000;
+    text-align: center;
+}
+
+.row{
+    margin: 0;
+}
+
+.footer-content{
+     padding: 5px 50px 0 50px;
+     font-size: 70%;
+}
+
+.float-right {
+    float: right;
+}
+
+.padding-top-40{
+     padding-top: 40px;
+}
+
+.twofifty-width{
+    width:250px;
+}
+.font-size-xs{
+    font-size: 50%;
+}
+
+.form-horizontal{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+
+/*MEDIA QUERIES DEVICES SMALLER THAN 1024px*/
+@media (max-width: 1024px){
+    
+    .main-content-container{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .disappear{
+        display: none;
+    }
+
+    .text-box-white {
+        position: relative;
+        top: 0px;    
+    }
+
+    .text-box-white2{
+        position: relative;
+        top: 0px;
+    }
+
+    .image-from-top{
+        position: relative;
+        top: 0px;
+        width: 100%;
+    }
+
+    .grey-banner{
+        font-size: 80%;
+    }
+
+    .white-banner{
+        font-size: 80%;
+    }
+
+    .text-align-right {
+        text-align: center;
+    }
+
+    p{
+        text-align: center;
+        line-height: 1.2em;
+    }
+
+    .navbar{
+        margin-bottom: 0;
+    }
+
+    .navbar-fixed-top{
+        position: relative;
+
+    }
+
+    body{
+        padding-top: 0;
+    }
+
+    .body-content{
+        padding-top: 0px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    img{
+        max-width: 100%;
+        min-width: 151px;
+    }
+
+    .container{
+        max-width: none;
+    }
+
+    .col-sm-3{
+        text-align: center;
+    }
+
+    .col-md-2{
+        text-align: center;
+    }
+
+    .media-icons{
+        padding: 0 0 10px 0;
+    }
+    
+    .media-icons.col-md-6 img{
+        max-height: 50%;
+    }
+
+    .footer-content{
+        text-align: center;
+        padding: 10px 0 0 0;
+    }
+
+    .footer-content img{
+        min-width: 0;
+    }
+
+    .float-right{
+        float: none;
+    }
+}
+
+/*MOBILE FIRST**************ITEM CONTENT*/
+@media (max-width: 767px){
+
+    .blend-box {
+        color: #ffffff;
+        height: 75px;
+        width: 75%;
+        position: absolute;
+        bottom: 0;
+        left: 13%;
+   	    background-blend-mode: multiply;
+    }
+
+    #nicky-bg {
+        background: #323232 url("/Content/Images/nicky-elite.jpg") no-repeat 49% 100%;
+        background-size: 151px 151px;
+    }
+
+    #colgate-fresh-bg {
+        background: #323232 url("/Content/Images/colgate-fresh.jpg") no-repeat 49% 100%;
+        background-size: 151px 151px;
+    }
+
+    #palmolive-shampoo-bg {
+        background: #323232 url("/Content/Images/palmolive-shampoo.jpg") no-repeat 49% 100%;
+        background-size: 151px 151px;
+    }
+    
+/*THIS STYLING IS FOR THE BLEND BOXS AT THE BOTTOM LEFT-RIGHT SCROLLER*/
+    .blend-box-top {
+        color: #ffffff;
+        height: 75px;
+        width: 75%;
+        position: absolute;
+        top: 0;
+        left: 13%;
+   	    background-blend-mode: multiply;
+    }
+     #nicky-bg-top {
+        background: #0197BA url("/Content/Images/nicky-elite.jpg") no-repeat 49% 0%;
+        background-size: 151px 151px;
+    }
+
+    #colgate-fresh-bg-top {
+        background: #0197BA url("/Content/Images/colgate-fresh.jpg") no-repeat 49% 0%;
+        background-size: 151px 151px;
+    }
+
+    #palmolive-shampoo-bg-top {
+        background: #0197BA url("/Content/Images/palmolive-shampoo.jpg") no-repeat 49% 0%;
+        background-size: 151px 151px;
+    }
+
+    .desc-plus p:nth-child(1){
+        font-size: 110%;
+        float:left;
+        position: absolute;
+        left: 12px;
+        top: 30%;
+    }
+
+    .desc-plus p:nth-child(2) {
+        font-size: 228%;
+        float: right;
+        position: absolute;
+        right: 12px;
+        top: 17%;
+    }
+
+/*****************************************************************************************/
+/*ITEM DESCRIPTION TEXT STYLING*********/
+    .blend-box p {
+        text-align: left;
+    }
+
+    .blend-box-top p {
+        text-align: left;
+    }
+
+    .item-description p{
+        font-size: 80%;
+    }
+
+    .price-weight p:nth-child(1){
+        font-size: 146%;
+        float: left;
+        font-weight: bold;
+    }
+
+    .price-weight p:nth-child(2) {
+        font-size: 60%;
+        float: right;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    .blended-corner {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 40px 40px 0;
+        border-color: transparent #323232 transparent transparent;
+        position: absolute;
+        top: 4px;
+        right: 12%;
+        mix-blend-mode: multiply;
+
+    }
+
+    .blended-corner p {
+        font-size: 100%;
+        position: absolute;
+        text-align: center;
+        color: #ffffff;
+        left: 18px;
+    }
+}
+
+/*NEXT MOBILE MAX WIDTH 1199px*/
+@media (min-width: 768px) and (max-width: 1024px) {
+      .blend-box {
+        color: #ffffff;
+        height: 75px;
+        width: 88%;
+        position: absolute;
+        bottom: 0;
+        left: 6%;
+   	    background-blend-mode: multiply;
+    }
+
+    #nicky-bg {
+        background: #323232 url("/Content/Images/nicky-elite.jpg") no-repeat 49% 100%;
+        background-size: 151px 151px;
+    }
+
+     #colgate-fresh-bg {
+        background: #323232 url("/Content/Images/colgate-fresh.jpg") no-repeat 49% 100%;
+        background-size: 151px 151px;
+    }
+
+    #palmolive-shampoo-bg {
+        background: #323232 url("/Content/Images/palmolive-shampoo.jpg") no-repeat 49% 100%;
+        background-size: 151px 151px;
+    }
+
+    /*ITEM DESCRIPTION TEXT STYLING*********/
+    .blend-box p {
+        text-align: left;
+    }
+
+    .item-description p{
+        font-size: 80%;
+    }
+
+    .price-weight p:nth-child(1){
+        font-size: 146%;
+        float: left;
+        font-weight: bold;
+        position: absolute;
+        bottom: -6px;
+    }
+
+    .price-weight p:nth-child(2) {
+        font-size: 60%;
+        float: right;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+/*THIS STYLING IS FOR THE BLEND BOXS AT THE BOTTOM LEFT-RIGHT SCROLLER*/
+    .blend-box-top {
+        color: #ffffff;
+        height: 75px;
+        width: 99%;
+        position: absolute;
+        top: 0;
+        left: 0px;
+   	    background-blend-mode: multiply;
+    }
+     #nicky-bg-top {
+        background: #0197BA url("/Content/Images/nicky-elite.jpg") no-repeat 52% 0%;
+        background-size: 151px 151px;
+    }
+
+    #colgate-fresh-bg-top {
+        background: #0197BA url("/Content/Images/colgate-fresh.jpg") no-repeat 52% 0%;
+        background-size: 151px 151px;
+    }
+
+    #palmolive-shampoo-bg-top {
+        background: #0197BA url("/Content/Images/palmolive-shampoo.jpg") no-repeat 52% 0%;
+        background-size: 151px 151px;
+    }
+
+    .desc-plus p:nth-child(1){
+        font-size: 110%;
+        float:left;
+        position: absolute;
+        left: 12px;
+        top: 30%;
+    }
+
+    .desc-plus p:nth-child(2) {
+        font-size: 228%;
+        float: right;
+        position: absolute;
+        right: 12px;
+        top: 17%;
+    }
+
+     .blended-corner {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 40px 40px 0;
+        border-color: transparent #323232 transparent transparent;
+        position: absolute;
+        top: 4px;
+        right: 6%;
+        mix-blend-mode: multiply;
+
+    }
+
+    .blended-corner p {
+        font-size: 100%;
+        position: absolute;
+        text-align: center;
+        color: #ffffff;
+        left: 18px;
+    }
+}
+/*MEDIA QUERY FOR ADJUSTING SIZE*/
+@media (min-width:1025px) and (max-width: 1199px) {
+
+    .col-sm-3 img{
+        max-width: 114px;
+    }
+
+    .see-it-image img{
+        max-width:540px;
+        margin-top: 20px;
+    }
+
+      .blend-box {
+        color: #ffffff;
+        height: 56px;
+        width: 99%;
+        position: absolute;
+        bottom: 0;
+        left: 0%;
+   	    background-blend-mode: multiply;
+    }
+
+    #nicky-bg {
+        background: #323232 url("/Content/Images/nicky-elite.jpg") no-repeat 80% 100%;
+        background-size: 114px 114px;
+    }
+
+     #colgate-fresh-bg {
+        background: #323232 url("/Content/Images/colgate-fresh.jpg") no-repeat 80% 100%;
+        background-size: 114px 114px;
+    }
+
+    #palmolive-shampoo-bg {
+        background: #323232 url("/Content/Images/palmolive-shampoo.jpg") no-repeat 80% 100%;
+        background-size: 114px 114px;
+    }
+
+    /*ITEM DESCRIPTION TEXT STYLING*********/
+    .blend-box p {
+        text-align: left;
+    }
+
+    .item-description p{
+        font-size: 70%;
+    }
+
+    .price-weight p:nth-child(1){
+        font-size: 120%;
+        float: left;
+        font-weight: bold;
+        position: absolute;
+        bottom: -15px;
+    }
+
+    .price-weight p:nth-child(2) {
+        font-size: 60%;
+        float: right;
+        position: absolute;
+        right: 0;
+        bottom: -10px;
+    }
+
+/*THIS STYLING IS FOR THE BLEND BOXS AT THE BOTTOM LEFT-RIGHT SCROLLER*/
+    .blend-box-top {
+        color: #ffffff;
+        height: 40px;
+        width: 99%;
+        position: absolute;
+        top: 0;
+        left: 0%;
+   	    background-blend-mode: multiply;
+    }
+
+     #nicky-bg-top {
+        background: #0197BA url("/Content/Images/nicky-elite.jpg") no-repeat 79% 0%;
+        background-size: 114px 114px;
+    }
+
+    #colgate-fresh-bg-top {
+        background: #0197BA url("/Content/Images/colgate-fresh.jpg") no-repeat 79% 0%;
+        background-size: 114px 114px;
+    }
+
+    #palmolive-shampoo-bg-top {
+        background: #0197BA url("/Content/Images/palmolive-shampoo.jpg") no-repeat 79% 0%;
+        background-size: 114px 114px;
+    }
+
+    .desc-plus p:nth-child(1){
+        font-size: 84%;
+        float:left;
+        position: absolute;
+        left: 10px;
+        top: 16%;
+    }
+
+    .desc-plus p:nth-child(2) {
+        font-size: 175%;
+        float: right;
+        position: absolute;
+        right: 10px;
+        top: -8%;
+    }
+
+    .icon-sizes {
+        min-width: 110px;
+        float: right;
+    }
+
+    .blended-corner {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 40px 40px 0;
+        border-color: transparent #323232 transparent transparent;
+        position: absolute;
+        top: 4px;
+        right: 1%;
+        mix-blend-mode: multiply;
+    }
+
+    .blended-corner p {
+        font-size: 65%;
+        position: absolute;
+        text-align: center;
+        color: #ffffff;
+        left: 18px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .footer-left p {
+        float: left;
+    }
+}
+
+/*NEXT MIN WIDTH 1200px - DEVICE LARGER THAN 1200px*/
+@media (min-width: 1200px) {
+
+    .see-it-image img{
+        max-width:540px;
+        margin-top: 20px;
+    }
+
+      .blend-box {
+        color: #ffffff;
+        height: 56px;
+        width: 99%;
+        position: absolute;
+        bottom: 0;
+        left: 0%;
+   	    background-blend-mode: multiply;
+    }
+
+    #nicky-bg {
+        background: #323232 url("/Content/Images/nicky-elite.jpg") no-repeat 28% 100%;
+        background-size: 128px 128px;
+    }
+
+     #colgate-fresh-bg {
+        background: #323232 url("/Content/Images/colgate-fresh.jpg") no-repeat 28% 100%;
+        background-size: 128px 128px;
+    }
+
+    #palmolive-shampoo-bg {
+        background: #323232 url("/Content/Images/palmolive-shampoo.jpg") no-repeat 28% 100%;
+        background-size: 128px 128px;
+    }
+
+    /*ITEM DESCRIPTION TEXT STYLING*********/
+    .blend-box p {
+        text-align: left;
+    }
+
+    .item-description p{
+        font-size: 80%;
+    }
+
+    .price-weight p:nth-child(1){
+        font-size: 146%;
+        float: left;
+        font-weight: bold;
+        position: absolute;
+        bottom: -15px;
+    }
+
+    .price-weight p:nth-child(2) {
+        font-size: 60%;
+        float: right;
+        position: absolute;
+        right: 0;
+        bottom: -10px;
+    }
+
+    /*THIS STYLING IS FOR THE BLEND BOXS AT THE BOTTOM LEFT-RIGHT SCROLLER*/
+    .blend-box-top {
+        color: #ffffff;
+        height: 40px;
+        width: 99%;
+        position: absolute;
+        top: 0;
+        left: 0%;
+   	    background-blend-mode: multiply;
+    }
+     #nicky-bg-top {
+        background: #0197BA url("/Content/Images/nicky-elite.jpg") no-repeat 27% 0%;
+        background-size: 128px 128px;
+    }
+
+    #colgate-fresh-bg-top {
+        background: #0197BA url("/Content/Images/colgate-fresh.jpg") no-repeat 27% 0%;
+        background-size: 128px 128px;
+    }
+
+    #palmolive-shampoo-bg-top {
+        background: #0197BA url("/Content/Images/palmolive-shampoo.jpg") no-repeat 27% 0%;
+        background-size: 128px 128px;
+    }
+
+    .desc-plus p:nth-child(1){
+        font-size: 84%;
+        float:left;
+        position: absolute;
+        left: 10px;
+        top: 16%;
+    }
+
+    .desc-plus p:nth-child(2) {
+        font-size: 175%;
+        float: right;
+        position: absolute;
+        right: 10px;
+        top: -8%;
+    }
+
+    .icon-sizes {
+        /*max-width: 100px;*/
+        margin-top: 30px;
+        float: right;
+    }
+
+    .blended-corner {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 40px 40px 0;
+        border-color: transparent #323232 transparent transparent;
+        position: absolute;
+        top: 4px;
+        right: 1%;
+        mix-blend-mode: multiply;
+
+    }
+
+    .blended-corner p {
+        font-size: 65%;
+        position: absolute;
+        text-align: center;
+        color: #ffffff;
+        left: 18px;
+    }
+}
+
+/*MEDIA QUERY FOR DEVICES LARGER THAN 992px*/
+@media (min-width: 992px) {
+
+    .address-contact{
+        text-align: center;
+        margin-left: 33.5%;
+    }
+
+    .address-bottom{
+        margin-left: 25%;
+    }
+
+    .col-md-6 {
+        margin-left: 25%;
+    }
+}
+
+/*MEDIA QUERY DEVICES LARGER THAN 1025px*/
+@media (min-width: 1025px) {
+    .address-contact{
+        margin-left: 0%;
+    }
+
+     .address-bottom{
+        margin-left: 0%;
+    }
+
+     .col-md-6 {
+        margin-left: 0%;
+    }
+
+    .dynamic-cols {
+        width: 100%;
+    }
+    .column {
+        float: left;
+    }
+}

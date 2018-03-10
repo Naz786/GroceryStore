@@ -1,0 +1,180 @@
+﻿@model ValueVille.Models.AddressAndPaymentViewModel
+
+@{
+    ViewBag.Title = "Address And Payment";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @action = "https://secure.worldpay.com/wcc/purchase" }))
+{
+    @Html.AntiForgeryToken()
+    <h1>
+    </h1>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>Please enter your address:</h4>
+        </div>
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.OrderDetails.OrderId)
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDetails.FirstName, new { htmlAttributes = new { @class = "form-control", id = "fName" } })
+                @Html.ValidationMessageFor(model => model.OrderDetails.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDetails.LastName, new { htmlAttributes = new { @class = "form-control", id = "lName" } })
+                @Html.ValidationMessageFor(model => model.OrderDetails.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDetails.Address, new { htmlAttributes = new { @class = "form-control", id = "addressName" } })
+                @Html.ValidationMessageFor(model => model.OrderDetails.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDetails.City, new { htmlAttributes = new { @class = "form-control", id = "cityName" } })
+                @Html.ValidationMessageFor(model => model.OrderDetails.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.State, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDetails.State, new { htmlAttributes = new { @class = "form-control", id = "stateName" } })
+                @Html.ValidationMessageFor(model => model.OrderDetails.State, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDetails.PostalCode, new { htmlAttributes = new { @class = "form-control", id = "postalName" } })
+                @Html.ValidationMessageFor(model => model.OrderDetails.PostalCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDetails.Country, new { htmlAttributes = new { @class = "form-control", id = "countryName" } })
+                @Html.ValidationMessageFor(model => model.OrderDetails.Country, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDetails.Phone, new { htmlAttributes = new { @class = "form-control", id = "phoneName" } })
+                @Html.ValidationMessageFor(model => model.OrderDetails.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrderDetails.Email, new { htmlAttributes = new { @class = "form-control", id = "emailName" } })
+                @Html.ValidationMessageFor(model => model.OrderDetails.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.OrderDetails.Total)
+        @Html.HiddenFor(model => model.OrderDetails.OrderDate)
+    </div>
+    
+
+        <div class="alert alert-warning" role="alert">REFUND POLICY: Return product to store for replacement only.</div>
+        <div class="alert alert-warning" role="alert">DELIVERY: Order before 3pm for same day delivery. FREE on orders over £20. Standard local delivery £3.99.</div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>Payment:</h4>
+        </div>
+
+        <div class="panel-body">
+            @Html.LabelFor(model => model.OrderDetails.Total, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                £@Model.OrderDetails.Total
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="col-md-offset-2 col-md-10">
+                
+                    <!-- This next line contains the testMode parameter - it specifies that the submission is a test submission -->
+                    <input type="hidden" name="testMode" value="100">
+                    <!-- This next line contains a mandatory parameter. Put your Installation ID inside the quotes after value= -->
+                    <input type="hidden" name="instId" value="1184265">
+                    <!-- Another mandatory parameter. Put your own reference identifier for the item purchased inside the quotes after value= -->
+                    <input type="hidden" name="cartId" value="@Model.CartId">
+                    <!-- Another mandatory parameter. Put the total cost of the item inside the quotes after value= Model.CartTotal-->
+                    <input type="hidden" name="amount" value="@Model.OrderDetails.Total">
+                    <!-- Another mandatory parameter. Put the code for the purchase currency inside the quotes after value= -->
+                    <input type="hidden" name="currency" value="GBP">
+                    <!--Fixing the address form details to payments page
+                    <input type=hidden name="fixContact" value="true"> 
+                    <input type='hidden' name='name' id="name" value='' />
+                    <input type='hidden' name='address1' id="address1" value='' />
+                    <input type='hidden' name='town' id="town" value='' />
+                    <input type='hidden' name='postcode' id="postcode" value='' />
+                    <input type='hidden' name='country' id="country" value='' />
+                    <input type='hidden' name='tel' id="tel" value='' />
+                    <input type='hidden' name='email' id="email" value='' />-->
+
+                    <input type="hidden" name="MC_callback" value="www.valueville.co.uk/Checkout/Complete_Order">
+
+                    <p>
+                        <input type="submit" value="Continue to Payment >>" class="btn btn-success" />
+                    </p>
+
+                
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="container">
+        <div class="row whiteBG">
+            <!-- Individual Card logos-->
+            <img src=http://www.worldpay.com/images/cardlogos/VISA.gif border=0 alt="Visa Credit and Debit payments supported by Worldpay">
+            <img src=http://www.worldpay.com/images/cardlogos/mastercard.gif border=0 alt="Mastercard payments supported by Worldpay">
+            <img src=http://www.worldpay.com/images/cardlogos/maestro.gif border=0 alt="Maestro payments supported by Worldpay">
+            <img src=http://www.worldpay.com/images/cardlogos/JCB.gif border=0 alt="JCB payments supported by Worldpay">
+
+            <!-- Powered by Worldpay logo-->
+            <a href="http://www.worldpay.com/" target="_blank" title="Payment Processing - Worldpay - Opens in new browser window">
+                <img src="http://www.worldpay.com/images/poweredByWorldPay.gif" border="0" alt="Worldpay Payments Processing">
+            </a>
+
+        </div>
+    </div>
+
+}
+<!--
+<script>
+    $(document).ready(function () {
+        document.getElementById('name').value = document.getElementById('fName').value + " " + document.getElementById('lName').value;
+        document.getElementById('address1').value = document.getElementById('addressName').value;
+        document.getElementById('town').value = document.getElementById('cityName').value;
+        document.getElementById('postcode').value = document.getElementById('postalName').value;
+        document.getElementById('country').value = document.getElementById('countryName').value;
+        document.getElementById('tel').value = document.getElementById('phoneName').value;
+        document.getElementById('email').value = document.getElementById('emailName').value;
+    });
+    
+</script>
+    -->

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Valueville" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Nazaqat\\Documents\\Visual\ Studio\ 2015\\Projects\\ValueVille\\ValueVille\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Nazaqat\\Documents\\Visual\ Studio\ 2015\\Projects\\ValueVille\\ValueVille\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=.\SQLEXPRESS;Initial Catalog=ValueVille-Website;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Nazaqat\\Documents\\Visual\ Studio\ 2015\\Projects\\ValueVille\\ValueVille\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

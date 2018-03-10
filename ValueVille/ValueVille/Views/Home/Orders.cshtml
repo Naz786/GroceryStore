@@ -1,0 +1,51 @@
+﻿@model ValueVille.Models.AccountOrdersViewModel
+
+@{
+    ViewBag.Title = "Orders";
+
+}
+
+<div class="main-content-container">
+
+    <h1></h1>
+
+    <table class="panel panel-default table cart-table">
+        <tr>
+            <th>
+                Order ID
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("OrderDetails", "Home", new { id = item.OrderId})">
+                        @item.OrderId
+                    </a>
+                </td>
+                <td>
+                    £@item.Total
+                </td>
+                <td>
+                    @item.OrderDate
+                </td>
+                <td>
+                    @item.Status
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+<div class="alert alert-warning" role="alert">REFUND POLICY: Return product to store for replacement only.</div>
+<div class="alert alert-warning" role="alert">DELIVERY: Order before 3pm for same day delivery. FREE on orders over £20. Standard local delivery £3.99.</div>

@@ -1,0 +1,50 @@
+﻿@model ValueVille.Models.ProductDetailsViewModel
+@using ValueVille.Models
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Product Details</h2>
+
+<table class="panel panel-default table form-horizontal">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Image)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Price)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ShowOnIndex)
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Product.Name)
+        </td>
+
+        <td>
+            @Html.Image(Model.Product.ByteImage, "Product_Image", "100")
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.Product.Price)
+        </td>
+        <td>
+            @Html.TrueOrFalse(Model.Product.ShowOnIndex)
+        </td>
+    </tr>
+ </table>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Product.Id, productName = Model.Product.Name}, new { @class = "btn btn-info" })
+        @Html.ActionLink("Back to List", "Index", new { id = Model.GenerateSlug(Model.CategoryId, Model.CategoryName)}, new { @class = "btn btn-info" })
+    </p>

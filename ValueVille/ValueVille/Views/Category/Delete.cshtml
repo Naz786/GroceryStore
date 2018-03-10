@@ -1,0 +1,46 @@
+﻿@model ValueVille.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Category</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+ <table class="panel panel-default table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+
+        <th>  </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(m => Model.Name)
+        </td>
+        <td>
+            <img src="@Model.OutputImage" alt="@Model.Image" height="100" />
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-info"}) 
+        </td>
+    </tr>
+</table>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <p class="form-actions">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+        </p>
+    }
+
