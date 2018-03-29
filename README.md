@@ -1,5 +1,5 @@
 # GroceryStore
-My first ASP.NET MVC project: Ecommerce solution I built during 2016/17 internship for a grocery store owner to easily list products on their website from a CSV product database. Customers can add items to their shopping cart and order them through WorldPay checkout payment system integration. I really enjoyed the challenges, but my favourite part is always desigining the front end as I go along. It reminds me of secondary school - being the best drawer in my art class. 
+My first ASP.NET MVC project: Ecommerce solution I built during 2016/17 internship for a grocery store owner to easily list products on their website from a CSV product database. Customers can add items to their shopping cart and order them through WorldPay checkout payment system integration.
 
 # Customer Interfaces
 ## Homepage
